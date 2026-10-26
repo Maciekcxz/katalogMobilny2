@@ -22,6 +22,16 @@
             SemanticScreenReader.Announce(CounterLabel.Text);
         }
 
+        private void PokazClicked(object? sender, EventArgs e)
+        {
+            EtykietaWyniku.Text = "Wybrano";
+        }
+
+        private void UkryjClicked(object? sender, EventArgs e)
+        {
+            EtykietaWyniku.Text = "Nic nie wybrano";
+        }
+
 
     }
 }

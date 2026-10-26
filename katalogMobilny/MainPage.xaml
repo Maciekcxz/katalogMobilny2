@@ -72,7 +72,8 @@
                 <Button
                     Grid.Row="4"
                     Grid.Column="1"
-                    Text="Ukryj" />
+                    Text="Ukryj"
+                    Clicked="UkryjClicked" />   
 
             </Grid>
 
@@ -89,7 +90,7 @@
             <Label
                 Text="typ robota: afroamerykanin"
                 TextColor="Grey" />
-
+c
             <Label
                 Text="Liczba iq:54"
                 TextColor="Grey" />
