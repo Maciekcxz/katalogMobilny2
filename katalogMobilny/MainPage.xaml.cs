@@ -3,7 +3,6 @@ namespace katalogMobilny
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
         int liczbaProduktow = 5;
         decimal wartoscMagazynu = 500m;
 
@@ -12,41 +11,10 @@ namespace katalogMobilny
             InitializeComponent();
         }
 
-
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
-
-            CounterLabel.Text = $"Kliknięto {count} razy";
-
-            SemanticScreenReader.Announce(CounterLabel.Text);
-
-
-        }
-
-        private void ResetLicznikClicked(object? sender, EventArgs e)
-        {
-            count = 0;
-
-            CounterLabel.Text = "Kliknięto 0 razy";
-        }
-
-
-        private void PokazClicked(object? sender, EventArgs e)
-        {
-            EtykietaWyniku.Text = "Wybrano";
-        }
-
-        private void UkryjClicked(object? sender, EventArgs e)
-        {
-            EtykietaWyniku.Text = "Nic nie wybrano";
-        }
-
         private void NazwaProduktu_TextChanged(object? sender, TextChangedEventArgs e)
         {
             LiczbaZnakow.Text = "Liczba znaków: " + NazwaProduktu.Text.Length;
         }
-
 
         private async void DodajProdukt_Click(object? sender, EventArgs e)
         {
@@ -60,20 +28,20 @@ namespace katalogMobilny
                 string.IsNullOrWhiteSpace(cena) ||
                 string.IsNullOrWhiteSpace(kategoria))
             {
-                await DisplayAlertAsync("Błąd", "Uzupełnij wszystkie pola.", "OK");
+                await DisplayAlert("Błąd", "Uzupełnij wszystkie pola.", "OK");
                 return;
             }
 
             if (!int.TryParse(ilosc, out int liczba) || liczba <= 0)
             {
-                await DisplayAlertAsync("Błąd", "Podaj poprawną ilość.", "OK");
+                await DisplayAlert("Błąd", "Podaj poprawną ilość.", "OK");
                 return;
             }
 
             if (!decimal.TryParse(cena, out decimal cenaProduktu) ||
                 cenaProduktu <= 0)
             {
-                await DisplayAlertAsync("Błąd", "Podaj poprawną cenę.", "OK");
+                await DisplayAlert("Błąd", "Podaj poprawną cenę.", "OK");
                 return;
             }
 
@@ -105,7 +73,6 @@ namespace katalogMobilny
             LiczbaZnakow.Text = "Liczba znaków: 0";
         }
 
-        
         private void ResetClicked(object? sender, EventArgs e)
         {
             liczbaProduktow = 5;

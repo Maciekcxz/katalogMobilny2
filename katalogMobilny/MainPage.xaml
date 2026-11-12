@@ -20,7 +20,6 @@
                 x:Name="WartoscMagazynu"
                 Text="Wartość magazynu: 500,00 zł" />
 
-
             <Label
                 Text="Dodaj nowy produkt"
                 FontSize="20"
@@ -47,11 +46,9 @@
 
             <Label Text="Wybierz kategorię:" />
 
-            <Label Text="Wybierz kategorię:" />
-
             <Picker
-    x:Name="KategoriaProduktu"
-    Title="Wybierz kategorię">
+                x:Name="KategoriaProduktu"
+                Title="Wybierz kategorię">
 
                 <Picker.Items>
                     <x:String>Procesory</x:String>
@@ -69,23 +66,24 @@
                 </Picker.Items>
 
             </Picker>
-            <Grid ColumnDefinitions="*,*"
-                  ColumnSpacing="10">
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
 
                 <Button
                     Grid.Column="0"
                     Text="Dodaj produkt"
+                    HeightRequest="50"
                     Clicked="DodajProdukt_Click" />
 
                 <Button
                     Grid.Column="1"
                     Text="Resetuj"
+                    HeightRequest="50"
                     Clicked="ResetClicked"
                     BackgroundColor="Red"
                     TextColor="White" />
 
             </Grid>
-
 
             <Label
                 Text="Lista dodanych produktów"
@@ -95,101 +93,6 @@
             <Label
                 x:Name="ListaProduktow"
                 Text="Brak dodanych produktów" />
-
-            <BoxView HeightRequest="2" Color="Gray" />
-
-
-            <Label
-                Text="Procesor"
-                FontSize="20"
-                FontAttributes="Bold"
-                TextColor="#008BFF"
-                HorizontalOptions="Center" />
-
-            <Image
-                Source="mikiprent.jpg"
-                HeightRequest="150"
-                Aspect="AspectFit" />
-
-            <Label
-                Text="Cena: 2000 zł"
-                TextColor="Gray" />
-
-            <Label
-                x:Name="EtykietaWyniku"
-                Text="Nic nie wybrano" />
-
-            <Grid ColumnDefinitions="*,*"
-                  ColumnSpacing="10">
-
-                <Button
-                    Grid.Column="0"
-                    Text="Pokaż"
-                    Clicked="PokazClicked" />
-
-                <Button
-                    Grid.Column="1"
-                    Text="Ukryj"
-                    Clicked="UkryjClicked" />
-
-            </Grid>
-
-            <BoxView HeightRequest="2" Color="Gray" />
-
-
-            <Label
-                Text="Robot"
-                FontSize="20"
-                FontAttributes="Bold"
-                HorizontalOptions="Center" />
-
-            <Image
-                x:Name="mikiprent"
-                Source="lazerdim.jpg"
-                HeightRequest="150"
-                Aspect="AspectFit"
-                SemanticProperties.Description="Robot" />
-
-            <Label
-                Text="Typ robota: afroamerykanin"
-                TextColor="Gray" />
-
-            <Label
-                Text="Liczba IQ: 54"
-                TextColor="Gray" />
-
-            <Label
-                Text="Pobór kasy: 12 zł/s"
-                TextColor="Gray" />
-
-            <Label
-                Text="Cena: 2000 zł"
-                TextColor="Gray" />
-
-            <BoxView HeightRequest="2" Color="Gray" />
-
-
-            <Label
-                Text="Licznik kliknięć"
-                FontSize="20"
-                FontAttributes="Bold"
-                HorizontalOptions="Center" />
-
-            <Label
-                x:Name="CounterLabel"
-                Text="Kliknięto 0 razy"
-                FontSize="22"
-                HorizontalOptions="Center" />
-
-            <Button
-                Text="Dodaj kliknięcie"
-                Clicked="OnCounterClicked"
-                BackgroundColor="Red"
-                TextColor="White" />
-
-            <Button
-                Text="Resetuj licznik"
-                Clicked="ResetLicznikClicked" />
 
         </VerticalStackLayout>
     </ScrollView>
