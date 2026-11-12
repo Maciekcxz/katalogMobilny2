@@ -4,124 +4,194 @@
              x:Class="katalogMobilny.MainPage">
 
     <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
 
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+            <Label
+                Text="Katalog produktów"
+                FontSize="26"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
 
-            <!-- PROCESOR -->
+            <Label
+                x:Name="LiczbaProduktow"
+                Text="Liczba produktów: 5" />
 
-            <Grid>
+            <Label
+                x:Name="WartoscMagazynu"
+                Text="Wartość magazynu: 500,00 zł" />
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <Label
+                Text="Dodaj nowy produkt"
+                FontSize="20"
+                FontAttributes="Bold" />
 
-                <!-- nazwa procesora -->
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Text="Procesor"
-                    FontSize="12"
-                    FontAttributes="Bold"
-                    TextColor="#008BFF"
-                    HorizontalOptions="Center"
-                    Margin="0,20" />
+            <Entry
+                x:Name="NazwaProduktu"
+                Placeholder="Nazwa produktu"
+                TextChanged="NazwaProduktu_TextChanged" />
 
-                <!-- obraz procesora -->
-                <Image
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Source="mikiprent.jpg"
-                    Aspect="AspectFit" />
+            <Label
+                x:Name="LiczbaZnakow"
+                Text="Liczba znaków: 0" />
 
-                <!-- cena procesora -->
-                <Label
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Text="Cena: 2000 zł"
-                    TextColor="Gray" />
+            <Entry
+                x:Name="IloscProduktu"
+                Placeholder="Ilość produktu"
+                Keyboard="Numeric" />
 
-                <!-- wynik procesora -->
-                <Label
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    x:Name="EtykietaWyniku"
-                    Text="Nic nie wybrano" />
+            <Entry
+                x:Name="CenaProduktu"
+                Placeholder="Cena produktu (zł)"
+                Keyboard="Numeric" />
 
-                <!-- przyciski procesora -->
+            <Label Text="Wybierz kategorię:" />
+
+            <Label Text="Wybierz kategorię:" />
+
+            <Picker
+    x:Name="KategoriaProduktu"
+    Title="Wybierz kategorię">
+
+                <Picker.Items>
+                    <x:String>Procesory</x:String>
+                    <x:String>Karty graficzne</x:String>
+                    <x:String>Pamięć RAM</x:String>
+                    <x:String>Dyski SSD</x:String>
+                    <x:String>Dyski HDD</x:String>
+                    <x:String>Płyty główne</x:String>
+                    <x:String>Zasilacze</x:String>
+                    <x:String>Obudowy</x:String>
+                    <x:String>Chłodzenie</x:String>
+                    <x:String>Monitory</x:String>
+                    <x:String>Klawiatury</x:String>
+                    <x:String>Myszki</x:String>
+                </Picker.Items>
+
+            </Picker>
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
+
                 <Button
-                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="Dodaj produkt"
+                    Clicked="DodajProdukt_Click" />
+
+                <Button
+                    Grid.Column="1"
+                    Text="Resetuj"
+                    Clicked="ResetClicked"
+                    BackgroundColor="Red"
+                    TextColor="White" />
+
+            </Grid>
+
+
+            <Label
+                Text="Lista dodanych produktów"
+                FontSize="20"
+                FontAttributes="Bold" />
+
+            <Label
+                x:Name="ListaProduktow"
+                Text="Brak dodanych produktów" />
+
+            <BoxView HeightRequest="2" Color="Gray" />
+
+
+            <Label
+                Text="Procesor"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#008BFF"
+                HorizontalOptions="Center" />
+
+            <Image
+                Source="mikiprent.jpg"
+                HeightRequest="150"
+                Aspect="AspectFit" />
+
+            <Label
+                Text="Cena: 2000 zł"
+                TextColor="Gray" />
+
+            <Label
+                x:Name="EtykietaWyniku"
+                Text="Nic nie wybrano" />
+
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
+
+                <Button
                     Grid.Column="0"
                     Text="Pokaż"
                     Clicked="PokazClicked" />
 
                 <Button
-                    Grid.Row="4"
                     Grid.Column="1"
                     Text="Ukryj"
-                    Clicked="UkryjClicked" />   
+                    Clicked="UkryjClicked" />
 
             </Grid>
 
+            <BoxView HeightRequest="2" Color="Gray" />
 
-            <!-- ROBOT -->
+
+            <Label
+                Text="Robot"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
 
             <Image
                 x:Name="mikiprent"
                 Source="lazerdim.jpg"
-                HeightRequest="185"
+                HeightRequest="150"
                 Aspect="AspectFit"
-                SemanticProperties.Description="processor" />
+                SemanticProperties.Description="Robot" />
 
             <Label
-                Text="typ robota: afroamerykanin"
-                TextColor="Grey" />
-c
-            <Label
-                Text="Liczba iq:54"
-                TextColor="Grey" />
+                Text="Typ robota: afroamerykanin"
+                TextColor="Gray" />
 
             <Label
-                Text="Pobór kasy:12zł/s"
-                TextColor="Grey" />
+                Text="Liczba IQ: 54"
+                TextColor="Gray" />
 
             <Label
-                Text="Cena: 2000zł"
-                TextColor="Grey" />
+                Text="Pobór kasy: 12 zł/s"
+                TextColor="Gray" />
+
+            <Label
+                Text="Cena: 2000 zł"
+                TextColor="Gray" />
+
+            <BoxView HeightRequest="2" Color="Gray" />
 
 
-            <!-- LICZNIK -->
+            <Label
+                Text="Licznik kliknięć"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
 
             <Label
                 x:Name="CounterLabel"
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                Text="Kliknięto 0 razy"
+                FontSize="22"
+                HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
+                Text="Dodaj kliknięcie"
                 Clicked="OnCounterClicked"
-                HorizontalOptions="Fill"
-                Background="#FF0000" />
+                BackgroundColor="Red"
+                TextColor="White" />
+
+            <Button
+                Text="Resetuj licznik"
+                Clicked="ResetLicznikClicked" />
 
         </VerticalStackLayout>
-
     </ScrollView>
 
 </ContentPage>
